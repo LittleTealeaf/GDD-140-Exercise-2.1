@@ -55,7 +55,7 @@ function updateFill() {
     fillBGoal = int(random(255));
   }
 
-  fill(fillR,fillG,fillB);
+  fill(fillR,fillG,fillB,50);
 }
 
 function updateEllipse() {
