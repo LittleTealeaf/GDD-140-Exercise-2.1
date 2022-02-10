@@ -4,16 +4,19 @@ var x = 0;
 var y = 0;
 var dx = 0;
 var dy = 0;
-var radius = 25;
+var radius = 0;
+var goalRadius = 0;
 var fillR = 0;
 var fillG = 0;
 var fillB = 0;
 var fillRGoal = 0;
 var fillGGoal = 0;
 var fillBGoal = 0;
+var transparency = 0;
 
 function setup() {
   createCanvas(500,500);
+  goalRadius = int(random(10,100))
   rectMode(CENTER);
   ellipseMode(CENTER);
   //Set ellipse random starting place
@@ -22,12 +25,15 @@ function setup() {
   //Set ellipse random velocity
   dx = random(-1,1);
   dy = random(-1,1);
+  //Set random transparency
+  transparency = random(100);
+
   background(220);
   noStroke();
 }
 
 function draw() {
-  
+  updateRadius();
   for(var i = 0; i < 10; i++) {
     if(i%2==0) {
       updateFill();
@@ -60,7 +66,7 @@ function updateFill() {
     fillBGoal = int(random(255));
   }
 
-  fill(fillR,fillG,fillB,random(100));
+  fill(fillR,fillG,fillB,transparency);
 }
 
 function updateEllipse() {
@@ -80,4 +86,15 @@ function updateEllipse() {
   }
   //draws the ellipse
   ellipse(x, y, radius * 2, radius * 2);
+}
+
+function updateRadius() {
+  //Change the radius
+  if(radius > goalRadius) {
+    radius--;
+  } else if(radius < goalRadius) {
+    radius++;
+  } else {
+    goalRadius = int(random(width / 5))
+  }
 }
