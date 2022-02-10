@@ -1,10 +1,6 @@
 {
   "include": [
-    "*.js"
-  ],
-  "typeAcquisition": {
-    "include": [
-      "*.js"
-    ]
-  }
+    "*.js",
+    "libraries/*.js"
+  ]
 }
