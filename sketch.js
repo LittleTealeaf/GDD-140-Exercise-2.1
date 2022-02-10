@@ -13,22 +13,27 @@ var fillGGoal = 0;
 var fillBGoal = 0;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(500,500);
   rectMode(CENTER);
   ellipseMode(CENTER);
   //Set ellipse random starting place
-  x = random(radius, 400 - radius);
-  y = random(radius, 400 - radius);
+  x = random(radius, width - radius);
+  y = random(radius, height - radius);
   //Set ellipse random velocity
-  dx = random(-5, 5);
-  dy = random(-5, 5);
+  dx = random(-1,1);
+  dy = random(-1,1);
   background(220);
   noStroke();
 }
 
 function draw() {
-  updateFill();
-  updateEllipse();
+  
+  for(var i = 0; i < 10; i++) {
+    if(i%2==0) {
+      updateFill();
+    }
+    updateEllipse();
+  }
 }
 
 function updateFill() {
