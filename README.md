@@ -1,4 +1,4 @@
-# GDD-140-Template
+# GDD-140 Exercise 2.1
 
 <!-- Github-Pages status goes here -->
 
