@@ -26,14 +26,16 @@ function setup() {
   dx = random(-1,1);
   dy = random(-1,1);
   //Set random transparency
-  transparency = random(100);
+  transparency = 100;
 
   background(220);
   noStroke();
 }
 
 function draw() {
-  updateRadius();
+  if(frameCount%2==0) {
+    updateRadius();
+  }
   for(var i = 0; i < 10; i++) {
     if(i%2==0) {
       updateFill();
@@ -74,15 +76,15 @@ function updateEllipse() {
   y += dy;
   //If the ellipse hits the left or right wall, set the direction to the other way
   if (x <= radius) {
-    dx = Math.abs(dx);
+    dx = random(0,1);
   } else if (x >= width - radius) {
-    dx = -Math.abs(dx);
+    dx = -random(0,1);
   }
   //If the ellipse hits the top or bottom wall, set the other direction
   if (y <= radius) {
-    dy = Math.abs(dy);
+    dy = random(0,1);
   } else if (y >= height - radius) {
-    dy = -Math.abs(dy);
+    dy = -random(0,1);
   }
   //draws the ellipse
   ellipse(x, y, radius * 2, radius * 2);
@@ -95,6 +97,6 @@ function updateRadius() {
   } else if(radius < goalRadius) {
     radius++;
   } else {
-    goalRadius = int(random(width / 5))
+    goalRadius = int(random(width / 6))
   }
 }
